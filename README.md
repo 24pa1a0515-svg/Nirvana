@@ -1,5 +1,6 @@
 # Q-NIRVANA — Project Explanation
 
+
 **Q-NIRVANA** is a healthcare platform that connects **patients, hospitals, and ambulance operators** in one system. It also includes a **Digital Twin for Type 2 Diabetes** that demonstrates how historical health records and wearable data can be used to estimate a future glucose spike.
 
 The project has two major parts:
