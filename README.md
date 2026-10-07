@@ -1,798 +1,708 @@
-[Q-NIRVANA_Project_Explanation_PPT.pptx](https://github.com/user-attachments/files/33166178/Q-NIRVANA_Project_Explanation_PPT.pptx)
-# Q-NIRVANA — Project Explanation
+PROJECT NAME: Q-NIRVANA
 
-Team Members
+PROJECT TYPE:
+Healthcare + Digital Twin Platform
 
+CHALLENGE:
+Digital Twin Challenge 2026
+
+TEAM NAME:
+Q-NIRVANA
+
+COLLEGE:
+Vishnu Institute of Technology, Andhra Pradesh
+Affiliated to JNTUK
+Department: Computer Science and Engineering
+
+TEAM MEMBERS:
 1. Alluri Naren Varma
-
-Roll No.: 24PA1A0515
-Year: 3rd Year
-Branch: Computer Science and Engineering
-College: Vishnu Institute of Technology
+   Roll No: 24PA1A0515
+   3rd Year, CSE
 
 2. Bezawada Lakshith Venkat Sai
+   Roll No: 24PA1A0532
+   3rd Year, CSE – Section A
 
-Roll No.: 24PA1A0532
-Year: 3rd Year
-Branch: Computer Science and Engineering — Section A
-College: Vishnu Institute of Technology
 
-**Q-NIRVANA** is a healthcare platform that connects **patients, hospitals, and ambulance operators** in one system. It also includes a **Digital Twin for Type 2 Diabetes** that demonstrates how historical health records and wearable data can be used to estimate a future glucose spike.
+PROJECT OVERVIEW:
 
-The project has two major parts:
+Q-NIRVANA is a healthcare platform designed to connect patients, hospitals, and ambulance operators through a unified digital system.
 
-1. **Real-time healthcare management platform**
-2. **Digital Twin healthcare prediction system**
+The project combines healthcare management, emergency response, real-time communication, ambulance GPS tracking, hospital resource management, and Digital Twin technology.
 
----
+The primary Digital Twin Challenge focus is Type 2 Diabetes, where the system aims to estimate approximately 2-hour-ahead glucose-spike risk using historical healthcare information and dynamic wearable data.
 
-## 1. Main Objective
 
-The main objective of Q-NIRVANA is to create a connected healthcare ecosystem where:
+PROBLEM STATEMENT:
 
-**Patient → Hospital → Doctor → Emergency Services → Ambulance**
+Healthcare services often involve disconnected processes such as hospital discovery, doctor appointments, patient queues, consultations, emergency requests, ambulance coordination, and patient monitoring.
 
-can communicate through a single platform.
+Patients may need to interact with multiple systems, while hospitals need efficient coordination of appointments, queues, emergencies, staff, resources, and ambulance services.
 
-The system allows patients to:
+Q-NIRVANA aims to bring these workflows together into one connected platform.
 
-* Find registered hospitals
-* Select departments
-* Find actual registered doctors
-* Book appointments
-* Receive tokens
-* Track their queue
-* Attend consultations
-* View consultation history
-* Request emergency assistance
-* Track an assigned ambulance
+For the Digital Twin component, the project explores how healthcare and wearable data can be combined to represent a patient's current state and estimate future glucose-spike risk.
 
-Hospitals can:
 
-* Manage doctors and staff
-* Manage departments
-* Manage appointments
-* Manage patient queues
-* Conduct consultations
-* Handle emergency cases
-* Monitor hospital resources
-* Coordinate ambulances
-* View authorized Digital Twin information
+MAIN USER ROLES:
 
-Ambulance operators can:
-
-* Receive emergency requests
-* Accept emergencies
-* Receive hospital destination
-* Share live GPS location
-* Update ambulance status
-* Mark arrival
-* Complete emergency assignments
+1. PATIENT
+2. HOSPITAL
+3. AMBULANCE OPERATOR
 
----
+Hospital users can have different designations such as:
+- Doctor
+- Hospital Administrator
+- Receptionist
+- Nurse
+- Emergency Staff
+- Other authorized staff
 
-# 2. Three Main Roles
+Access must be controlled according to the authenticated user's role and authorization.
 
-There are exactly **three top-level roles**.
 
-### 1. Patient
+PATIENT FEATURES:
 
-The patient uses the system to access healthcare services.
+- Registration and login
+- Firebase authentication
+- Hospital search
+- Hospital details
+- Department browsing
+- Doctor discovery
+- Appointment booking
+- Appointment status
+- Queue/token management
+- Consultation information
+- Authorized medical history
+- Emergency request
+- Ambulance tracking
+- Notifications
+- Digital Twin information where authorized
 
-Typical flow:
 
-```text
-Register
-   ↓
-Login
-   ↓
-Search Hospital
-   ↓
-Select Department
-   ↓
-Select Doctor
-   ↓
-Book Appointment
-   ↓
-Receive Token
-   ↓
-Track Queue
-   ↓
-Consultation
-   ↓
-View History
-```
+HOSPITAL FEATURES:
 
----
+- Hospital authentication
+- Role/designation-based dashboard
+- Hospital profile
+- Department management
+- Staff management
+- Doctor management
+- Appointment management
+- Patient queue management
+- Token generation
+- Consultation management
+- Emergency management
+- Ambulance coordination
+- Hospital resource management
+- Notifications
+- Analytics
+- Authorized patient information
 
-### 2. Hospital
 
-Doctors and hospital staff are part of the **Hospital role**.
+AMBULANCE OPERATOR FEATURES:
 
-They are differentiated using their designation.
+- Registration/login
+- Ambulance information
+- Availability status
+- Emergency request notification
+- Accept emergency request
+- View assigned emergency
+- Hospital destination
+- Live GPS location sharing
+- Emergency status updates
+- Arrival confirmation
+- Emergency completion
 
-For example:
 
-* Doctor
-* Hospital Administrator
-* Receptionist
-* Nurse
-* Emergency Staff
-
-A doctor can:
-
-* View appointments
-* View queue
-* Call the next patient
-* Access authorized patient information
-* Create consultation records
-* View authorized Digital Twin information
-
-Hospital administrators can manage:
-
-* Staff
-* Departments
-* Resources
-* Appointments
-* Emergency cases
-* Ambulance coordination
-
----
-
-### 3. Ambulance Operator
-
-The ambulance operator handles emergency transportation.
-
-Flow:
-
-```text
-Emergency Request
-       ↓
-Available Ambulance
-       ↓
-Operator Accepts
-       ↓
-Live GPS Tracking
-       ↓
-Destination Hospital
-       ↓
-Hospital Alert
-       ↓
-Ambulance Arrives
-       ↓
-Emergency Completed
-```
-
----
-
-# 3. Firebase Authentication
-
-Q-NIRVANA uses your existing Firebase project:
-
-**Project:** Q-NIRVANA
-**Project ID:** `q-nirvana-d5620`
-
-Firebase is responsible for **authentication and identity**.
-
-It handles:
-
-* Registration
-* Login
-* Logout
-* Email verification
-* Password reset
-* Firebase UID
-* Firebase ID tokens
+APPOINTMENT SYSTEM:
 
-The important architecture is:
+The appointment workflow is:
 
-```text
-User
- ↓
-Firebase Authentication
- ↓
-Firebase UID
- ↓
-Firebase ID Token
- ↓
-Q-NIRVANA Backend
- ↓
-MySQL
-```
-
-Firebase does **not** store the application's complete healthcare data.
-
-MySQL stores the application data.
+Patient selects hospital
+→ Selects department
+→ Selects doctor
+→ Selects available appointment
+→ Sends appointment request
+→ Hospital/doctor confirms
+→ Patient receives confirmation
+→ Patient receives queue/token information
+→ Doctor calls patient
+→ Consultation is completed
 
----
-
-# 4. MySQL Database
-
-MySQL is the main application database.
-
-It stores information such as:
+Possible appointment statuses:
+- requested
+- confirmed
+- waiting
+- in_progress
+- completed
+- cancelled
 
-```text
-Users
-Patients
-Hospitals
-Departments
-Hospital Staff
-Doctors
-Appointments
-Queue Tokens
-Consultations
-Emergency Cases
-Ambulances
-Ambulance Locations
-Hospital Resources
-Notifications
-Digital Twin Data
-```
-
-Firebase and MySQL have different responsibilities:
-
-| System       | Responsibility              |
-| ------------ | --------------------------- |
-| Firebase     | Authentication              |
-| MySQL        | Application/healthcare data |
-| Socket.IO    | Real-time communication     |
-| Google Maps  | Ambulance tracking          |
-| Digital Twin | Prediction prototype        |
-
----
-
-# 5. Patient Appointment System
+The backend must validate doctor, hospital, patient, time slot, and authorization and prevent duplicate bookings.
 
-Suppose a patient wants to visit a doctor.
 
-The patient:
+QUEUE SYSTEM:
 
-```text
-Searches Hospital
-      ↓
-Selects Department
-      ↓
-Views Registered Doctors
-      ↓
-Selects Doctor
-      ↓
-Views Available Slots
-      ↓
-Books Appointment
-```
+The hospital can generate and manage patient tokens.
 
-The appointment is stored in MySQL.
+Patients can see their queue status.
 
-The patient then receives a queue token.
-
-For example:
-
-```text
-Your Token: 25
-
-Current Token: 22
-
-Patients Ahead: 3
-```
-
-When the doctor calls token 25, the patient's dashboard receives a real-time notification.
-
----
-
-# 6. Real-Time Queue
-
-Q-NIRVANA uses **Socket.IO** for real-time communication.
+Doctors can call the next patient.
 
-For example:
+Queue changes should be reflected in real time using Socket.IO.
 
-```text
-Doctor calls Token 25
-        ↓
-Backend updates database
-        ↓
-Socket.IO event
-        ↓
-Patient dashboard
-        ↓
-"Token 25 — Please proceed"
-```
+Example:
 
-The patient does not need to refresh the webpage.
+Token 15 → Waiting
+Token 14 → Called
+Token 13 → Completed
 
-Socket.IO can also handle:
 
-* Queue updates
-* Emergency alerts
-* Ambulance updates
-* Notifications
-* Digital Twin updates
-* Hospital resource updates
+EMERGENCY SYSTEM:
 
----
+Emergency workflow:
 
-# 7. Emergency System
+Patient creates emergency request
+→ System searches available registered ambulance
+→ Ambulance assigned
+→ Operator accepts
+→ Operator travels to location
+→ Live GPS updates
+→ Hospital receives emergency information
+→ Ambulance reaches destination
+→ Hospital handles patient
+→ Emergency completed
 
-Emergency handling is one of the major components.
+Possible statuses:
+- requested
+- searching
+- assigned
+- accepted
+- en_route
+- arrived
+- hospital_notified
+- completed
+- cancelled
 
-A patient creates an emergency request.
+Important actions such as Accept, Confirm, and Complete must be validated by the backend and protected against duplicate requests.
 
-The system searches for an **available registered ambulance**.
 
-```text
-Patient
-   ↓
-Emergency Request
-   ↓
-Backend
-   ↓
-Available Ambulance
-   ↓
-Ambulance Operator
-   ↓
-Accept
-   ↓
-Live Location
-   ↓
-Hospital
-```
+AMBULANCE GPS TRACKING:
 
-The hospital receives information that an emergency ambulance is coming.
+The ambulance operator can share:
 
-The hospital can prepare the required resources.
+- Latitude
+- Longitude
+- Timestamp
 
----
+The backend stores and broadcasts location updates.
 
-# 8. Ambulance Tracking
+Socket.IO sends updates to authorized users.
 
-Google Maps is used for ambulance tracking.
+Google Maps displays the active ambulance location.
 
-The ambulance operator's device can provide:
+No fake ambulance markers or fake ambulance locations should be shown when there is no registered active ambulance.
 
-```text
-Latitude
-Longitude
-Timestamp
-```
 
-The information travels through:
+HOSPITAL RESOURCES:
 
-```text
-Ambulance Operator
-       ↓
-server.js
-       ↓
-MySQL
-       ↓
-Socket.IO
-       ↓
-Patient/Hospital
-       ↓
-Google Maps
-```
+Hospital resources can include:
 
-The map can show:
+- Beds
+- ICU beds
+- Emergency beds
+- Ventilators
+- Oxygen
+- Other available resources
 
-* Current ambulance location
-* Destination hospital
-* Route
-* Emergency location
+All resource values must come from the configured database.
 
-The application should never show a fake ambulance marker when no real ambulance is active.
+Do not use fake or hardcoded hospital resource values.
 
----
+If no data exists, show:
 
-# 9. Digital Twin
+"No hospital resource data available."
 
-This is the major innovative component of the project.
 
-The selected use case is:
+DIGITAL TWIN:
 
-## Type 2 Diabetes
+The Digital Twin component focuses on:
 
-The Digital Twin represents a computational model of a patient's changing health state.
+TYPE 2 DIABETES
 
-It combines two types of information.
+MAIN OBJECTIVE:
 
-### Historical EHR information
+Estimate approximately 2-hour-ahead glucose-spike risk.
 
-Examples:
+The Digital Twin combines historical healthcare information with dynamic wearable information.
 
-* Age
-* Gender
-* Previous diagnoses
-* Previous glucose
-* HbA1c
-* Blood pressure
-* BMI
-* Laboratory information
-* Medical history
-* Medication information where available
-* Genetic markers where available
 
-### Dynamic wearable information
+HISTORICAL/EHR INPUTS:
 
-Examples:
+- Age
+- Gender
+- Previous diagnoses
+- Previous glucose readings
+- HbA1c
+- Blood pressure
+- BMI
+- Laboratory information
+- Medical history
+- Medication information where available
+- Genetic information where available
 
-* Continuous glucose
-* Heart rate
-* HRV
-* Steps
-* Sleep
-* Physical activity
-* Timestamp
 
----
+WEARABLE INPUTS:
 
-# 10. Digital Twin Pipeline
+- Continuous glucose
+- Heart rate
+- HRV
+- Steps
+- Sleep
+- Physical activity
+- Timestamp
 
-The complete process is:
 
-```text
-Historical EHR
-       +
+DIGITAL TWIN PIPELINE:
+
+EHR Data
++
 Wearable Data
-       ↓
-Data Preprocessing
-       ↓
+↓
+Data Cleaning
+↓
+Missing Value Handling
+↓
+Normalization/Scaling
+↓
 Feature Extraction
-       ↓
+↓
+Time-Series Analysis
+↓
 Digital Twin State
-       ↓
+↓
 Prediction Model
-       ↓
-Future Glucose Prediction
-       ↓
-Risk Estimation
-```
+↓
+Future Glucose Estimate
+↓
+Glucose-Spike Risk
 
-The target is approximately:
 
-**2-hour-ahead glucose prediction / glucose-spike risk estimation.**
+POSSIBLE FEATURES:
 
----
+- Current glucose
+- Recent glucose change
+- Glucose trend
+- Historical glucose
+- HbA1c
+- Heart-rate trend
+- HRV trend
+- Recent physical activity
+- Steps
+- Sleep duration
+- Recent activity level
 
-# 11. Example Digital Twin
 
-Suppose the system receives:
+PREDICTION OUTPUT:
 
-```text
-Current glucose: 118 mg/dL
-Heart rate: 86 bpm
-HRV: 42
-Steps: 4200
-Sleep: 6.5 hours
-```
+The system can display:
 
-The backend processes the information.
+- Current glucose
+- Predicted glucose
+- Prediction horizon
+- Risk probability
+- Risk level
+- Confidence where supported
+- Contributing factors
+- Historical trend
+- Current trend
+- Digital Twin state
 
-It may calculate:
 
-* Recent glucose trend
-* Activity level
-* Heart-rate trend
-* HRV trend
-* Historical glucose pattern
-* Other available features
+IMPORTANT DIGITAL TWIN REQUIREMENTS:
 
-The prediction system then produces an estimate.
+Do not simply hardcode:
 
-The dashboard could show:
+"High Risk"
 
-```text
-CURRENT GLUCOSE
-118 mg/dL
+The prediction must be generated from processed input data using an actual algorithmic/statistical or trained model approach.
 
-PREDICTED GLUCOSE
-154 mg/dL
+If a trained ML model is not available, a transparent statistical/prototype prediction method may be used.
 
-PREDICTION HORIZON
-~2 hours
+The system must clearly state:
 
-RISK
-Elevated
-
-CONTRIBUTING FACTORS
-• Recent glucose rise
-• Recent activity level
-• Historical glucose trend
-• Sleep pattern
-```
-
-These values must come from the actual prediction pipeline rather than a hardcoded:
-
-```text
-High Risk
-```
-
-statement.
-
----
-
-# 12. Synthetic Digital Twin Data
-
-There is an important distinction.
-
-The application must have **zero fake real-world healthcare data**.
-
-That means no fake:
-
-* doctors
-* patients
-* hospitals
-* ambulances
-* staff
-* appointments
-* medical records
-* emergency cases
-
-However, the Digital Twin Challenge permits **synthetic wearable/time-series data for the prototype demonstration**.
-
-Therefore:
-
-```text
-REAL HEALTHCARE DATA
-        ≠
-SYNTHETIC DIGITAL TWIN DATA
-```
-
-Synthetic Digital Twin data must display:
-
-> **SYNTHETIC DIGITAL TWIN DATA — PROTOTYPE**
+"SYNTHETIC DIGITAL TWIN DATA — PROTOTYPE"
 
 and:
 
-> **NOT A MEDICAL DIAGNOSIS**
+"NOT A MEDICAL DIAGNOSIS"
 
-This prevents synthetic demonstration data from being mistaken for an actual patient's medical record.
+Synthetic challenge data must remain separate from real healthcare records.
 
----
 
-# 13. Real-Time Digital Twin
+REAL-TIME DIGITAL TWIN:
 
-The Digital Twin should also work in real time.
+When wearable information changes:
 
-For example:
+Wearable Data
+→ Backend
+→ Digital Twin State
+→ Prediction
+→ Socket.IO
+→ Authorized Doctor/Patient Dashboard
 
-```text
-New wearable reading
-       ↓
-Backend
-       ↓
-Preprocessing
-       ↓
-Feature extraction
-       ↓
-Digital Twin state
-       ↓
-Prediction
-       ↓
-Socket.IO
-       ↓
-Doctor dashboard
-```
+The dashboard should update without requiring a full page refresh.
 
-If new glucose/HR/HRV/activity information arrives, the dashboard can update automatically.
 
-No page refresh should be required.
+AUTHENTICATION:
 
----
+Use Firebase Authentication.
 
-# 14. No Fake Data Principle
+Required capabilities:
 
-This is one of the most important project requirements.
+- Registration
+- Login
+- Logout
+- Email verification
+- Resend verification email
+- Forgot password
+- Password reset
+- Authentication state
+- Firebase UID
+- ID token
+- Token refresh
 
-Q-NIRVANA must **not** use hardcoded healthcare records such as:
+The frontend sends:
 
-```javascript
-const doctors = [
-   ...
-];
-```
+Authorization: Bearer <Firebase_ID_Token>
 
-or:
+The backend verifies the Firebase ID token using Firebase Admin SDK.
 
-```javascript
-const hospitals = [
-   ...
-];
-```
+Never trust a role, user ID, patient ID, hospital ID, or doctor ID supplied only by the frontend.
 
-or:
 
-```javascript
-const ambulances = [
-   ...
-];
-```
+DATABASE:
 
-The system must obtain real-world application data from:
+Use MySQL.
 
-```text
-Authenticated User
-        ↓
-Firebase
-        ↓
-Backend
-        ↓
+Suggested tables:
+
+- users
+- patients
+- hospitals
+- departments
+- hospital_users
+- doctors
+- appointments
+- queue_tokens
+- consultations
+- emergency_cases
+- ambulances
+- ambulance_locations
+- hospital_resources
+- notifications
+- digital_twin_ehr
+- digital_twin_wearables
+- digital_twin_predictions
+
+
+NO FAKE DATA:
+
+Do NOT create:
+
+- Fake patients
+- Fake doctors
+- Fake hospitals
+- Fake staff
+- Fake ambulance operators
+- Fake ambulances
+- Fake appointments
+- Fake departments
+- Fake medical records
+- Fake emergency cases
+- Fake hospital resources
+- Fake credentials
+- Fake Firebase users
+
+Real healthcare data must come from authenticated users and the configured database.
+
+Synthetic data is permitted ONLY for the Digital Twin Challenge demonstration and must be clearly labelled.
+
+
+EMPTY STATES:
+
+When database records do not exist, show appropriate messages such as:
+
+"No hospitals currently registered."
+
+"No doctors currently available."
+
+"No appointments available."
+
+"No patient data available."
+
+"No EHR data available."
+
+"No wearable data available."
+
+"Prediction unavailable."
+
+"No ambulance currently available."
+
+
+REAL-TIME COMMUNICATION:
+
+Use Socket.IO for:
+
+- Queue updates
+- Patient called notifications
+- Emergency alerts
+- Ambulance status
+- Ambulance GPS location
+- Hospital resource updates
+- Notifications
+- Digital Twin wearable updates
+- Digital Twin prediction updates
+
+Use protected rooms such as:
+
+hospital:<hospital_id>
+patient:<patient_id>
+doctor:<doctor_id>
+emergency:<emergency_id>
+digital-twin:<authorized_patient_id>
+
+Only authorized users can join relevant rooms.
+
+
+TECHNOLOGY STACK:
+
+Frontend:
+HTML
+CSS
+Vanilla JavaScript
+
+Backend:
+Node.js
+Express.js
+
+Database:
 MySQL
-```
 
-If MySQL is empty, the application should say:
+Authentication:
+Firebase Authentication
+Firebase Admin SDK
 
-```text
-No hospitals currently registered.
-```
+Real-time:
+Socket.IO
 
-instead of displaying fake hospitals.
+Maps:
+Google Maps
 
----
+Deployment:
+Vercel-compatible architecture or another suitable production backend platform when persistent Socket.IO functionality requires it.
 
-# 15. Security
 
-Security is particularly important because this is a healthcare application.
+MAIN FILE STRUCTURE:
 
-The backend must verify:
+index.html
+server.js
+package.json
+vercel.json
 
-```text
-Firebase Token
-        ↓
-Firebase UID
-        ↓
-MySQL User
-        ↓
-Role
-        ↓
-Permission
-        ↓
-Requested Data
-```
+Do not create unnecessary additional backend files.
 
-For example, a patient cannot simply change:
+Do not use:
+- Python backend
+- Flask backend
+- React
+- Vite
+- Next.js
+- Supabase
+- PostgreSQL
 
-```text
-patient_id=123
-```
+The Q-NIRVANA implementation should use Node.js + Express + MySQL + Firebase.
 
-to access another patient's information.
 
-The backend must verify that the authenticated Firebase UID actually owns that patient record.
+API REQUIREMENTS:
 
-Similarly, a hospital user from Hospital A must not access private records belonging to Hospital B.
+GET /api/health
 
----
+POST /api/auth/register
 
-# 16. One-Click Operations
+GET /api/me
 
-Important actions should be executable with one click.
+GET /api/hospitals
 
-Examples:
+GET /api/hospitals/:id
 
-* Accept Emergency
-* Confirm Appointment
-* Call Next Patient
-* Confirm Arrival
-* Complete Emergency
-* Complete Consultation
+GET /api/departments
 
-But the button itself is not enough.
+GET /api/departments/:id
 
-For example:
+GET /api/staff
 
-```text
-Click Accept
-     ↓
-Backend verifies user
-     ↓
-Checks emergency status
-     ↓
-Checks operator permission
-     ↓
-Updates MySQL
-     ↓
-Emits Socket.IO event
-     ↓
-Updates dashboards
-```
+GET /api/doctors
 
-This also prevents duplicate actions.
+GET /api/appointments
 
----
+POST /api/appointments
 
-# 17. Overall Architecture
+PUT /api/appointments/:id
 
-The complete Q-NIRVANA architecture is:
+GET /api/queue
 
-```text
-                    Q-NIRVANA
-                        |
-        +---------------+---------------+
-        |               |               |
-     PATIENT         HOSPITAL       AMBULANCE
-        |               |            OPERATOR
-        |               |               |
-        +---------------+---------------+
-                        |
-                Firebase Auth
-                        |
-                   Firebase UID
-                        |
-                   ID Token
-                        |
-                    server.js
-                        |
-        +---------------+---------------+
-        |               |               |
-      MySQL         Socket.IO       Google Maps
-        |               |               |
-        |         Real-time data      GPS
-        |
-   Healthcare Data
-        |
-        +----------------------+
-        |                      |
-   Normal Healthcare      Digital Twin
-       Records              Pipeline
-                               |
-                    EHR + Wearable Data
-                               |
-                         Feature Extraction
-                               |
-                         Prediction Model
-                               |
-                    Future Glucose Estimate
-```
+POST /api/queue
 
----
+POST /api/queue/next
 
-# 18. Technology Stack
+GET /api/consultations
 
-| Component      | Technology                           |
-| -------------- | ------------------------------------ |
-| Frontend       | HTML, CSS, JavaScript                |
-| Backend        | Node.js + Express                    |
-| Authentication | Firebase Authentication              |
-| Backend Auth   | Firebase Admin SDK                   |
-| Database       | MySQL                                |
-| Real-time      | Socket.IO                            |
-| Maps           | Google Maps                          |
-| Prediction     | Statistical/ML Digital Twin pipeline |
-| Deployment     | Vercel-compatible architecture       |
+POST /api/consultations
 
----
+GET /api/emergency
 
-# 19. What Makes the Project Different
+POST /api/emergency
 
-The project is not just an appointment-booking application.
+PUT /api/emergency/:id
 
-It combines:
+GET /api/ambulances
 
-### Healthcare Management
+POST /api/ambulances/location
 
-Appointments, queues, consultations and hospital management.
+GET /api/resources
 
-### Emergency Coordination
+PUT /api/resources
 
-Patients, ambulances and hospitals communicate through a real-time emergency workflow.
+GET /api/notifications
 
-### Live Ambulance Tracking
+GET /api/analytics
 
-Google Maps and GPS provide location information.
+GET /api/settings
 
-### Real-Time Communication
 
-Socket.IO eliminates the need for constant page refreshes.
+DIGITAL TWIN APIs:
 
-### Digital Twin
+GET /api/digital-twin/ehr
 
-Historical EHR + wearable data are used to model a changing health state and estimate future glucose behavior.
+POST /api/digital-twin/ehr
 
-So the overall concept is:
+GET /api/digital-twin/wearables
 
-> **A connected healthcare platform that combines hospital operations, emergency response, real-time communication, and a Type 2 Diabetes Digital Twin for predictive healthcare research.**
+POST /api/digital-twin/wearables
 
----
+GET /api/digital-twin/prediction
 
-## Simple 30-second explanation
+POST /api/digital-twin/predict
 
-> **Q-NIRVANA is a real-time healthcare platform connecting patients, hospitals, and ambulance operators. Patients can find registered hospitals and doctors, book appointments, receive queue tokens, attend consultations, and request emergency ambulances. Hospitals can manage appointments, queues, consultations, emergencies, staff, and resources, while ambulance operators can accept emergencies and share live GPS locations. The platform uses Firebase for authentication, MySQL for healthcare data, Socket.IO for real-time updates, and Google Maps for ambulance tracking. Its key innovation is a Type 2 Diabetes Digital Twin that combines historical EHR information with wearable data such as glucose, heart rate, HRV, steps, sleep, and activity to estimate future glucose-spike risk. Synthetic data is used only for the clearly labelled Digital Twin prototype and is kept separate from real healthcare records.**
+
+HEALTH CHECK:
+
+GET /api/health
+
+Must return HTTP 200:
+
+{"status":"ok"}
+
+No authentication should be required for this endpoint.
+
+
+SECURITY:
+
+The application must include:
+
+- Firebase ID-token verification
+- Backend authorization
+- Role-based access control
+- Hospital-level isolation
+- Patient ownership checks
+- Ambulance operator authorization
+- Input validation
+- Parameterized SQL queries
+- Secure error handling
+- No password storage
+- No exposed Firebase Admin credentials
+- No exposed database credentials
+- No hardcoded secrets
+- No unrestricted medical-data access
+
+
+PROJECT VALUE:
+
+Q-NIRVANA attempts to connect multiple healthcare workflows in one platform.
+
+Instead of treating appointments, queues, emergency response, ambulance tracking, and patient monitoring as completely separate systems, Q-NIRVANA connects them through a common authenticated platform.
+
+The Digital Twin component adds a predictive layer focused on Type 2 diabetes and approximately 2-hour-ahead glucose-spike risk.
+
+The project demonstrates how:
+
+Healthcare Data
++
+Wearable Data
++
+Real-Time Communication
++
+Location Services
++
+Digital Twin Technology
++
+Predictive Analytics
+
+can be combined into a unified healthcare technology platform.
+
+
+PROJECT INSPIRATION:
+
+The project was inspired by the need for better coordination between patients, hospitals, and emergency services and by the opportunity to explore Digital Twin technology in healthcare.
+
+The main objective is not to replace doctors or provide medical diagnosis.
+
+Instead, the project demonstrates how digital technologies can help organize healthcare workflows and provide data-driven insights.
+
+
+KEY CHALLENGES:
+
+1. Managing multiple user roles and permissions.
+2. Designing secure healthcare-data access.
+3. Connecting Firebase authentication with MySQL application data.
+4. Managing appointments and preventing duplicate bookings.
+5. Implementing real-time queue updates.
+6. Implementing emergency workflows.
+7. Tracking ambulance GPS locations in real time.
+8. Integrating Google Maps.
+9. Processing time-series wearable data.
+10. Creating an algorithmic Digital Twin prediction pipeline.
+11. Separating synthetic challenge data from real healthcare records.
+12. Deploying the backend and real-time services reliably.
+
+
+WHAT WE LEARNED:
+
+Through Q-NIRVANA, we gained practical experience in:
+
+- Full-stack development
+- Healthcare application design
+- REST API development
+- MySQL database design
+- Firebase authentication
+- Role-based authorization
+- Real-time Socket.IO communication
+- GPS tracking
+- Google Maps integration
+- Digital Twin concepts
+- Time-series data processing
+- Predictive analytics
+- Application security
+- Deployment and debugging
+
+
+IMPORTANT PRESENTATION MESSAGE:
+
+Q-NIRVANA is a prototype healthcare technology platform.
+
+The Digital Twin prediction is intended for demonstration and research purposes.
+
+It must NOT be presented as a clinically validated medical prediction system or as a replacement for professional medical advice.
+
+The system should clearly distinguish real authenticated healthcare records from synthetic Digital Twin challenge data.
