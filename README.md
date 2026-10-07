@@ -1,3 +1,4 @@
+[Q-NIRVANA_Project_Explanation_PPT.pptx](https://github.com/user-attachments/files/33166178/Q-NIRVANA_Project_Explanation_PPT.pptx)
 # Q-NIRVANA — Project Explanation
 
 Team Members
